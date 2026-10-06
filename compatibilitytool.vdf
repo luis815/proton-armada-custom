@@ -2,7 +2,7 @@
 {
   "compat_tools"
   {
-    "ProtonArmada"
+    "proton-armada-custom"
     {
       "install_path" "."
       "display_name" "Proton Armada"

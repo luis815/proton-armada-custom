@@ -3,26 +3,32 @@
 VERB="$1"
 shift
 
+echo "[PROTON ARMADA DEBUG] $VERB" >&2
+
 case "$VERB" in
     "waitforexitandrun"|"run")
         if [ $# -eq 0 ]; then
+            echo "[PROTON ARMADA DEBUG] No command passed by Steam!" >&2
             exit 0
         fi
-
+        echo "[PROTON ARMADA DEBUG] run command" >&2
         exec "${@}"
         ;;
 
     "getcompatpath"|"getnativepath")
-        echo "$1"
+        echo "[PROTON ARMADA DEBUG] get path" >&2
+        printf '%s' "$1"          # no trailing newline
         exit 0
         ;;
 
     "runinprefix"|"destroyprefix")
+        echo "[PROTON ARMADA DEBUG] prefix" >&2
         exit 0
         ;;
 
     *)
-        echo "$@"
+        echo "[PROTON ARMADA DEBUG] catch-all" >&2
+        printf '%s' "$@"
         exit 0
         ;;
 esac
