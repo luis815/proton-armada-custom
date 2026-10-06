@@ -1,0 +1,28 @@
+#!/bin/bash
+
+VERB="$1"
+shift
+
+case "$VERB" in
+    "waitforexitandrun"|"run")
+        if [ $# -eq 0 ]; then
+            exit 0
+        fi
+
+        exec "${@}"
+        ;;
+
+    "getcompatpath"|"getnativepath")
+        echo "$1"
+        exit 0
+        ;;
+
+    "runinprefix"|"destroyprefix")
+        exit 0
+        ;;
+
+    *)
+        echo "$@"
+        exit 0
+        ;;
+esac
